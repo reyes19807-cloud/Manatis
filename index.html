@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manatíes - Los Tiernos Gigantes del Agua</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        :root {
+            --seagreen: #2a9d8f;
+            --seafoam: #8ecae6;
+            --aqua: #48cae4;
+            --mint: #a8dadc;
+            --deep-teal: #1d3557;
+            --light-mint: #e9f5f5;
+            --coral: #e76f51;
+            --sand: #e9c46a;
+            --text: #264653;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(180deg, #f0f9ff 0%, #e1f5fe 100%);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Encabezado con diseño orgánico */
+        header {
+            background: linear-gradient(135deg, var(--seagreen) 0%, var(--deep-teal) 100%);
+            color: white;
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .floating-leaves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,15 Q40,5 50,15 T70,15 Q80,25 70,35 T70,55 Q60,65 50,55 T30,55 Q20,45 30,35 T30,15 Z" fill="white"/></svg>');
+            background-size: 200px;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        header h1 {
+            font-size: 4.2rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 45px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--mint), var(--seafoam));
+            color: var(--deep-teal);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Secciones con diseño fluido */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            color: var(--deep-teal);
+            font-size: 3rem;
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(to right, var(--mint), var(--seagreen));
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+        
+        /* Tarjetas de especies mejoradas con imágenes */
+        .species-section {
+            background: linear-gradient(135deg, var(--seafoam) 0%, var(--aqua) 100%);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .species-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%231d3557"/></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .species-section .section-title {
+            color: white;
+        }
+        
+        .species-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 992px) {
+            .species-card {
+                flex-direction: row;
+                min-height: 400px;
+            }
+            
+            .species-card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+        
+        .species-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        .species-img {
+            flex: 1;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .species-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        
+        .species-card:hover .species-img img {
+            transform: scale(1.1);
+        }
+        
+        .species-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .species-content h3 {
+            color: var(--deep-teal);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .species-content h3 i {
+            margin-right: 15px;
+            font-size: 2.2rem;
+            color: var(--seagreen);
+        }
+        
+        .species-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat {
+            background: rgba(42, 157, 143, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            color: var(--seagreen);
+            font-size: 1.2rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--deep-teal);
+        }
+        
+        /* Sección de características */
+        .features-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border-top: 5px solid var(--mint);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            color: var(--seagreen);
+            margin-bottom: 25px;
+        }
+        
+        .feature-item h3 {
+            color: var(--deep-teal);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+        
+        /* Sección de conservación */
+        .conservation-section {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #457b9d 100%);
+            color: white;
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        }
+        
+        .conservation-section .section-title {
+            color: white;
+        }
+        
+        .conservation-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .conservation-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .conservation-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .conservation-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .conservation-card h3 i {
+            margin-right: 15px;
+            font-size: 1.9rem;
+        }
+        
+        /* Sección de datos curiosos */
+        .funfacts-section {
+            background: linear-gradient(135deg, var(--sand) 0%, #f4a261 100%);
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        }
+        
+        .funfacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .funfact-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .funfact-item:hover {
+            transform: rotate(-2deg) scale(1.05);
+        }
+        
+        .funfact-icon {
+            font-size: 3.5rem;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+        
+        .funfact-item h3 {
+            color: var(--deep-teal);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #1b4332 100%);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49,25 1113-14.29,1200,52.47V0z" fill="%231d3557"/></svg>');
+            background-size: cover;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--mint);
+        }
+        
+        .footer-column p, .footer-column a {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--mint);
+            padding-left: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+        
+        /* Animaciones */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .species-content {
+                padding: 25px;
+            }
+            
+            .feature-item {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="floating-leaves"></div>
+        <div class="container">
+            <div class="header-content fade-in">
+                <h1>Manatíes</h1>
+                <p>Los tiernos gigantes de los ríos y mares, embajadores de la serenidad acuática</p>
+                <a href="#especies" class="cta-button floating">Descubrir a los Manatíes</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de especies mejorada -->
+    <section id="especies" class="species-section">
+        <div class="container">
+            <h2 class="section-title">Especies de Manatíes</h2>
+            
+            <!-- Manatí Antillano -->
+            <div class="species-card fade-in">
+                <div class="species-img">
+                    <img src="https://i.pinimg.com/736x/7d/c5/fa/7dc5faaa1b0be712c5dc0b60dadddf1d.jpg" alt="Manatí Antillano">
+                </div>
+                <div class="species-content">
+                    <h3><i class="fas fa-water"></i> Manatí Antillano</h3>
+                    <p>El manatí antillano (Trichechus manatus) es la especie más conocida y estudiada. Habita en aguas costeras del Mar Caribe y el Golfo de México, distribuyéndose desde Florida hasta el noreste de Brasil. Prefiere aguas cálidas, poco profundas y protegidas como bahías, estuarios y desembocaduras de ríos.</p>
+                    <p>Esta especie realiza migraciones estacionales notables, moviéndose hacia aguas más cálidas durante el invierno. En Florida, se concentran en aguas naturales cálidas como manantiales o cerca de centrales eléctricas cuando las temperaturas bajan. Su piel es gruesa y rugosa, de color grisáceo, y a menudo presenta cicatrices blancas causadas por hélices de embarcaciones.</p>
+                    <div class="species-stats">
+                        <div class="stat">
+                            <div class="stat-value">4.5 m</div>
+                            <div class="stat-label">Longitud máxima</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">1,500 kg</div>
+                            <div class="stat-label">Peso máximo</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">60 años</div>
+                            <div class="stat-label">Esperanza de vida</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Vulnerable</div>
+                            <div class="stat-label">Estado de conservación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manatí del Amazonas -->
+            <div class="species-card fade-in">
+                <div class="species-img">
+                    <img src="https://i.pinimg.com/1200x/24/e9/43/24e9436ad29df3e9cf18f63ce2dab2fe.jpg" alt="Manatí del Amazonas">
+                </div>
+                <div class="species-content">
+                    <h3><i class="fas fa-tree"></i> Manatí del Amazonas</h3>
+                    <p>El manatí amazónico (Trichechus inunguis) es la única especie que vive exclusivamente en agua dulce, habitando el extenso sistema del río Amazonas y sus afluentes. Es más pequeño que sus parientes marinos y presenta adaptaciones únicas a su entorno fluvial.</p>
+                    <p>Su piel es más lisa y de color más oscuro que otras especies, casi negra, con una característica mancha blanquecina o rosada en el pecho. Carece completamente de uñas en sus aletas, una adaptación única entre los manatíes. Su población está íntimamente ligada a los ciclos de inundación estacional del Amazonas, siguiendo los pulsos de inundación para acceder a nuevas áreas de alimentación.</p>
+                    <div class="species-stats">
+                        <div class="stat">
+                            <div class="stat-value">3 m</div>
+                            <div class="stat-label">Longitud máxima</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">450 kg</div>
+                            <div class="stat-label">Peso máximo</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Agua dulce</div>
+                            <div class="stat-label">Hábitat exclusivo</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Vulnerable</div>
+                            <div class="stat-label">Estado de conservación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manatí Africano -->
+            <div class="species-card fade-in">
+                <div class="species-img">
+                    <img src="https://i.pinimg.com/736x/3e/b4/d1/3eb4d13b6acdd0b7e990515af2ae2e47.jpg" alt="Manatí Africano">
+                </div>
+                <div class="species-content">
+                    <h3><i class="fas fa-globe-africa"></i> Manatí Africano</h3>
+                    <p>El manatí africano (Trichechus senegalensis) habita las costas occidentales de África, desde Senegal hasta Angola, incluyendo ríos como el Níger, el Senegal y el Congo. Prefiere aguas costeras tranquilas, estuarios, lagunas y los tramos bajos de los ríos con abundante vegetación acuática.</p>
+                    <p>Similar en tamaño al manatí antillano, se distingue por su coloración más clara y un patrón único de marcas blancas o rosadas en el pecho y abdomen. Es la especie menos estudiada debido a la inestabilidad política en partes de su área de distribución y la falta de programas de investigación. Se alimenta de una gran variedad de plantas acuáticas y puede tolerar aguas con cierta salinidad, aunque prefiere el agua dulce.</p>
+                    <div class="species-stats">
+                        <div class="stat">
+                            <div class="stat-value">4 m</div>
+                            <div class="stat-label">Longitud máxima</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">800 kg</div>
+                            <div class="stat-label">Peso máximo</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Costa O. África</div>
+                            <div class="stat-label">Distribución</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Vulnerable</div>
+                            <div class="stat-label">Estado de conservación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dugón -->
+            <div class="species-card fade-in">
+                <div class="species-img">
+                    <img src="https://i.pinimg.com/736x/15/95/d2/1595d2e962ca38a3f787aa23d8ea6dd4.jpg" alt="Dugón">
+                </div>
+                <div class="species-content">
+                    <h3><i class="fas fa-history"></i> Dugón - El Pariente Cercano</h3>
+                    <p>El dugón (Dugong dugon) es el pariente vivo más cercano de los manatíes, perteneciente a la familia Dugongidae. Habita en las costas tropicales del Indo-Pacífico, desde el Mar Rojo hasta las costas norteñas de Australia. Se distingue fácilmente de los manatíes por su cola ahorquillada similar a la de los delfines.</p>
+                    <p>Los dugones son estrictamente marinos y se alimentan casi exclusivamente de pastos marinos, para lo cual tienen un labio superior muy desarrollado que les ayuda a arrancar las plantas del fondo marino. Son animales longevos que pueden vivir más de 70 años, pero tienen tasas de reproducción muy bajas, lo que los hace particularmente vulnerables a las amenazas humanas. Históricamente, la vaca marina de Steller, un pariente gigante de los dugones, habitaba el Ártico pero fue cazada hasta la extinción apenas 27 años después de su descubrimiento.</p>
+                    <div class="species-stats">
+                        <div class="stat">
+                            <div class="stat-value">3.3 m</div>
+                            <div class="stat-label">Longitud máxima</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">400 kg</div>
+                            <div class="stat-label">Peso máximo</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Indo-Pacífico</div>
+                            <div class="stat-label">Distribución</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Vulnerable</div>
+                            <div class="stat-label">Estado de conservación</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de características -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Características Únicas</h2>
+            <div class="feature-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Dieta Herbívora</h3>
+                    <p>Los manatíes son los únicos mamíferos marinos completamente herbívoros. Consumen hasta el 10% de su peso corporal diariamente en plantas acuáticas, pastos marinos y algas, pasando hasta 8 horas al día alimentándose.</p>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Inteligencia Social</h3>
+                    <p>Poseen cerebros inusualmente lisos pero muestran notable inteligencia y capacidad de aprendizaje. Forman lazos sociales complejos y utilizan una variedad de sonidos para comunicarse entre sí.</p>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Metabolismo Lento</h3>
+                    <p>Su metabolismo es excepcionalmente lento para un mamífero, lo que les permite sobrevivir con dietas de bajo valor nutritivo. Esta adaptación también explica su naturaleza tranquila y movimientos pausados.</p>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Renovación Dental</h3>
+                    <p>Los manatíes poseen un sistema único de renovación dental: sus molares se mueven constantemente hacia adelante y son reemplazados a lo largo de su vida, adaptándose perfectamente a su dieta abrasiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de conservación -->
+    <section class="conservation-section">
+        <div class="container">
+            <h2 class="section-title">Conservación y Amenazas</h2>
+            
+            <div class="conservation-content">
+                <div class="conservation-card fade-in">
+                    <h3><i class="fas fa-ship"></i> Colisiones con Embarcaciones</h3>
+                    <p>Las heridas causadas por hélices de barcos representan la mayor amenaza para los manatíes. Sus movimientos lentos y necesidad de respirar en la superficie los hacen extremadamente vulnerables al tráfico acuático.</p>
+                </div>
+                
+                <div class="conservation-card fade-in">
+                    <h3><i class="fas fa-home"></i> Pérdida de Hábitat</h3>
+                    <p>El desarrollo costero, la contaminación y la destrucción de lechos de pastos marinos reducen críticamente su hábitat. Los manatíes dependen de aguas cálidas y áreas de alimentación específicas para sobrevivir.</p>
+                </div>
+                
+                <div class="conservation-card fade-in">
+                    <h3><i class="fas fa-temperature-low"></i> Estrés por Frío</h3>
+                    <p>Como animales tropicales, los manatíes son extremadamente sensibles a las bajas temperaturas. El cambio climático y la pérdida de fuentes de agua cálida natural causan eventos de mortalidad masiva.</p>
+                </div>
+                
+                <div class="conservation-card fade-in">
+                    <h3><i class="fas fa-hand-holding-water"></i> Contaminación Acuática</h3>
+                    <p>Los derrames químicos, contaminantes agrícolas y desechos plásticos afectan su salud y destruyen su fuente de alimento. La exposición a toxinas puede causar enfermedades y problemas reproductivos.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <h3 style="margin-bottom: 25px; font-size: 1.8rem;">Esfuerzos de Protección</h3>
+                <p>Programas de conservación incluyen la creación de santuarios, regulación de velocidad para embarcaciones, rescate y rehabilitación de individuos heridos, y programas de reproducción en cautiverio. Todas las especies de manatíes están catalogadas como vulnerables o en peligro de extinción.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de datos curiosos -->
+    <section class="funfacts-section">
+        <div class="container">
+            <h2 class="section-title">Datos Curiosos</h2>
+            
+            <div class="funfacts-grid">
+                <div class="funfact-item fade-in">
+                    <div class="funfact-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Orígenes Prehistóricos</h3>
+                    <p>Los manatíes evolucionaron de mamíferos terrestres hace unos 60 millones de años. Sus parientes más cercanos en tierra son los elefantes, con quienes comparten características como el crecimiento continuo de los dientes.</p>
+                </div>
+                
+                <div class="funfact-item fade-in">
+                    <div class="funfact-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Gigantes Gentiles</h3>
+                    <p>A pesar de su gran tamaño, los manatíes tienen huesos extremadamente densos y pesados que les ayudan a mantenerse sumergidos. Carecen de la vejiga natatoria que tienen los peces para controlar su flotabilidad.</p>
+                </div>
+                
+                <div class="funfact-item fade-in">
+                    <div class="funfact-icon">
+                        <i class="fas fa-swimmer"></i>
+                    </div>
+                    <h3>Nadadores Elegantes</h3>
+                    <p>Usan su cola en forma de cuchara para propulsarse y sus aletas delanteras para dirigirse y manipular comida. Aunque generalmente se mueven lentamente, pueden alcanzar velocidades de hasta 25 km/h en ráfagas cortas.</p>
+                </div>
+                
+                <div class="funfact-item fade-in">
+                    <div class="funfact-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Vínculos Maternales Fuertes</h3>
+                    <p>Las crías de manatí permanecen con sus madres durante hasta dos años, aprendiendo rutas migratorias y zonas de alimentación. Este prolongado cuidado parental es crucial para su supervivencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre los Manatíes</h3>
+                    <p>Los manatíes son mamíferos marinos herbívoros conocidos por su naturaleza gentil y movimientos pausados. Pertenecen al orden Sirenia y son primos lejanos de los elefantes.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Conservación</h3>
+                    <a href="#">Cómo ayudar</a>
+                    <a href="#">Avistamiento responsable</a>
+                    <a href="#">Voluntariado</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Recursos Educativos</h3>
+                    <a href="#">Investigaciones científicas</a>
+                    <a href="#">Documentales</a>
+                    <a href="#">Bibliografía</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animación de aparición al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = "1";
+                        element.style.transform = "translateY(0)";
+                    }
+                });
+            };
+            
+            // Establecer estado inicial
+            fadeElements.forEach(element => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(40px)";
+                element.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+            });
+            
+            // Añadir efecto floating a algunos elementos
+            const floatingElements = document
